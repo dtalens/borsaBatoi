@@ -6,13 +6,13 @@ Si la nostra màquina és per a desenvolupar l'aplicació el més senzill és cr
 ### Descàrrega de l'aplicació
 A l'hora de descarregar el codi, creem la carpeta que vaja a contenir el nostre codi i anem a ella:
 ```bash
-mkdir ~/code/borsaBatoi
-cd ~/code/borsaBatoi
+mkdir ~/code/borsajaume
+cd ~/code/borsajaume
 ```
 
 Inicialitzem git i descarregem l'aplicació:
 ```bash
-git clone https://github.com/cipfpbatoi/borsaBatoi.git
+git clone https://github.com/dtalens/borsajaume.git
 ```
 
 ## Desplegament per a producció
@@ -31,13 +31,13 @@ NOTA: ara la validació dels usuaris la fa el sistema (el _plugin_ 'auth_socket'
 mysql_secure_installation
 sudo mysql -u root
 
-mysql> CREATE USER nomusuari@localhost IDENTIFIED BY 'P@ssw0rd';
+mysql> CREATE USER 'borsausuari'@'localhost' IDENTIFIED BY 'nova_contrasenya';
 # SI volem vore-ho
 mysql> SELECT User, Host, plugin, authentication_string FROM mysql.user;
 # Creem la base de dades
 mysql> CREATE DATABASE borsatreball;
 # i li donem privilegis a l'usuari
-mysql> GRANT ALL PRIVILEGES ON borsatreball.* TO nomusuari@localhost;
+mysql> GRANT ALL ON borsatreball.* TO 'borsatreball'@'localhost' IDENTIFIED BY 'nova_contrasenya' WITH GRANT OPTION;
 mysql> exit;
 ```
 
@@ -51,12 +51,12 @@ openssl x509 -req -in borsa.csr -signkey ../private/borsa.key -out borsa.crt
 
 Configurem el lloc web SSL en _/etc/apache2/sites-available_:
 * ServerName: p.ej. `ServerName borsa.my`
-* DocumentRoot: `DocumentRoot /var/www/html/borsaBatoi/public`
+* DocumentRoot: `DocumentRoot /var/www/html/borsajaume/public`
 * SSLCertificateFile: `SSLCertificateFile /etc/ssl/certs/borsa.crt`
 * SSLCertificateKeyFile: `SSLCertificateKeyFile /etc/ssl/private/borsa.key`
 * Creem un nou directori:`
 ```bash
-<Directory /var/www/html/borsaBatoi/public>
+<Directory /var/www/html/borsajaume/public>
   AllowOverride All
   Order Allow,Deny
   Allow from All
@@ -66,7 +66,7 @@ Configurem el lloc web SSL en _/etc/apache2/sites-available_:
 Configurem el lloc web no SSL en _/etc/apache2/sites-available_ per a que redireccione al SSL:
 * ServerName: p.ej. `ServerName borsa.my`
 * Redireccionem: `Redirect permanent  /  https://borsa.my/`
-* DocumentRoot: `DocumentRoot /var/www/html/borsaBatoi/public`
+* DocumentRoot: `DocumentRoot /var/www/html/borsajaume/public`
 
 Habilitem els sites si els hem creat nous:
 ```bash
@@ -81,7 +81,7 @@ Posem el nostre domini en el **/etc/hosts**:
 
 Ara descarreguem l'aplicació des de Github:
 ```bash
-git clone https://github.com/cipfpbatoi/borsaBatoi.git
+git clone https://github.com/dtalens/borsajaume.git
 ```
 
 A continuació cal asegurar-se que l'usuari www-data pot escriure dins del directori **storage**.
@@ -92,7 +92,7 @@ sudo a2enmod ssl
 sudo a2enmod rewrite
 sudo systemctl restart apache2.service
 ```
-ATENCIÓ: cal que estiga la carpeta borsaBatoi ja creada abans de reiniciar Apache per que no done un error.
+ATENCIÓ: cal que estiga la carpeta borsajaume ja creada abans de reiniciar Apache per que no done un error.
 
 ## Configuració de l'aplicació
 Si estem desplegant per a producció necessitarem el gestor de dependències **composer** (en Homestead ja el tenim) així que ho [descarreguem](https://getcomposer.org/download/) en el directori de l'aplicació.
@@ -104,9 +104,9 @@ npm install # aquest comando no cal fer-ho en producció
 ```
 
 Copiem el fitxer **.env**, que no es descarrega de git, des de **.env-example**. Allí hem de configurar:
-- APP_NAME: Ponemos nuestro nombre (CIP FP Batoi)
+- APP_NAME: Ponemos nuestro nombre (IES Jaume I)
 - l'accés a la BBDD (DB_DATABASE, DB_USERNAME, DB_PASSWORD)
-- el mail: MAIL_DRIVER (sendmail), MAIL_HOST (localhost), MAIL_PORT (25), MAIL_USERNAME (usuario del sistema que envía los e-mails), MAIL_PASSWORD (su contrasenña), MAIL_ ENCRYPTION (null), MAIL_FROM_ADDRESS (borsatreball@cipfpbatoi.es), MAIL_FROM_NAME ("Borsa Treball Batoi")
+- el mail: MAIL_DRIVER (sendmail), MAIL_HOST (localhost), MAIL_PORT (25), MAIL_USERNAME (usuario del sistema que envía los e-mails), MAIL_PASSWORD (su contrasenña), MAIL_ ENCRYPTION (null), MAIL_FROM_ADDRESS (borsa@iesjaumeprimer.com), MAIL_FROM_NAME ("Borsa Treball Jaume I")
 - 
 
 Creem la BBDD `borsatreball` i executem la migración (això no cal fer-ho si importem la BBDD en compte de crear-la):
