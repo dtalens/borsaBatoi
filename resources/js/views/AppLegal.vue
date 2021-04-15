@@ -9,7 +9,7 @@
         <li>
             El registre i la introducció de les seues dades en els formularis de la Borsa 
             de Treball implica la conformitat amb la política de privacitat ací reflectida
-            i l'autorització al CIP de FP Batoi per a tractar aquestes dades en els terminis
+            i l'autorització a l'IES Jaume I per a tractar aquestes dades en els terminis
             i condicions ací indicades.
         </li>
         <li>Les dades personals introduïdes en els formularis de la Borsa de Treball
@@ -45,14 +45,14 @@
             rectificació, cancel·lació i oposició mitjançant escrit que 
             acredite suficientment la identitat i dirigit a la direcció del centre:
             <pre>
-            CIP FP Batoi
-            Carrer Societat Unió Musical, 8
-            03802 Alcoi - Alacant</pre>
-            o per correu-e a capdestudis@cipfpbatoi.es
+            IES Jaume I
+            Avinguda Albaida, 23
+            46870 Ontinyent - València</pre>
+            o per correu-e a 46017201@gva.es
         </li>
         <li>
-            Correspon a l'usuari l'actualització de les seues pròpies dades. El CIP FP
-            Batoi no serà responsable de la seua inexactitut si l'Usuari no comunica
+            Correspon a l'usuari l'actualització de les seues pròpies dades. L'IES Jaume
+            I no serà responsable de la seua inexactitut si l'Usuari no comunica
             els canvis (per exemple, canvio de direcció de correu electrònic).
         </li>
         <li>
