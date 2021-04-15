@@ -10,14 +10,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Notifications\SignupActivate;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
 
     public function signup(Request $request)
     {
-        //dd($request);
-
         $request->validate([
             'name'     => 'required|string',
             'email'    => 'required|string|email|unique:users',
@@ -30,13 +29,19 @@ class AuthController extends Controller
             'email'    => $request->email,
             'password' => bcrypt($request->password),
             'rol'      => $request->rol,
-            'activation_token' => str_random(60),
+            'activation_token' => Str::random(60),
          ]);
+
 
         DB::transaction(function () use ($user) {
             $user->save();
-            if ($user->isAlumno()) Alumno::create(['nombre' => $user->name, 'id' => $user->id]);
-            if ($user->isEmpresa()) Empresa::create(['nombre' => $user->name, 'id' => $user->id]);
+
+            if ($user->isAlumno()) {
+                Alumno::create(['nombre' => $user->name, 'id' => $user->id]);
+            }
+            if ($user->isEmpresa()) {
+                Empresa::create(['nombre' => $user->name, 'id' => $user->id]);
+            }
         });
         $user->notify(new SignupActivate($user));
         return response()->json($this->getToken($user), 201);
