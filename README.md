@@ -1,5 +1,5 @@
-# Borsa de Treball del CIP FP Batoi
-Ací es troba l'aplicació del projecte de la Borsa de Treball del CIP FP Batoi. 
+# Borsa de Treball del Jaume I d'Ontinyent (Fork de la Borsa de treball CIFP Batoi)
+Ací es troba l'aplicació del projecte de la Borsa de Treball de l'IES Jaume I. 
 
 Podeu consultar la [documentació](./docs/) per a saber cóm utilitzar la nostra Borsa.
 
