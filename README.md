@@ -1,5 +1,5 @@
 # Borsa de Treball del Jaume I d'Ontinyent 
-Ací es troba l'aplicació del projecte de la Borsa de Treball de l'IES Jaume I (fork de la Borsa de treball CIFP Batoi)
+Ací es troba l'aplicació del projecte de la Borsa de Treball de l'IES Jaume I (fork de la Borsa de treball CIPFP Batoi)
 
 Podeu consultar la [documentació](./docs/) per a saber cóm utilitzar la nostra Borsa.
 
