@@ -19,7 +19,7 @@
     <v-toolbar color="indigo" dark fixed app>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>
-        CIP FP Batoi - Borsa de Treball</v-toolbar-title>
+        IES Jaume I - Borsa de Treball</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-title class="ml-0 pl-3">
         <h2>{{ title }}</h2>
@@ -43,7 +43,7 @@
     </v-content>
 
     <v-footer color="indigo" app>
-      <span class="white--text">&copy; CIP FP Batoi 2018</span>
+      <span class="white--text">&copy; IES Jaume I 2021</span>
       <v-spacer></v-spacer>
       <span class="white--text"><h2>{{ myName?'Hola '+myName:'' }}</h2></span>
     </v-footer>
