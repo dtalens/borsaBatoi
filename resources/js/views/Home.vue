@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Què es la Borsa</h1>
-    <p>La Borsa de Treball del CIP FP Batoi és un punt de trobada 
+    <p>La Borsa de Treball de l'IES Jaume I és un punt de trobada 
       entre els nostres alumnes i ex-alumnes i
       les empreses que busquen professionals qualificats per a incorporar
       a les seues plantilles.
